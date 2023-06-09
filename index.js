@@ -1,5 +1,4 @@
 let secretNumber = Math.trunc(Math.random() * 20) + 1;
-console.log(secretNumber);
 
 let currentScore = 20;
 let highScore = 0;
@@ -18,14 +17,14 @@ let maxScore = document.getElementById("max-score");
 let showNumber = document.getElementById("mystery-box");
 
 // function for shake the button
-function shake(element) {
+function shake(element, className, originalClass) {
   // we add shake class for shaking
-  element.classList = "btn shake";
+  element.classList = `${originalClass} ${className}`;
 
   // after 3 second we remove that class
   let delay = setTimeout(function () {
-    element.classList = "btn";
-  }, 2000);
+    element.classList = `${originalClass}`;
+  }, 3000);
 }
 
 // when user click on check btn
@@ -34,13 +33,13 @@ checkBtn.addEventListener("click", () => {
   if (num.value === "") {
     msg.innerText = "👀 Kuch to likho yaar!";
 
-    shake(checkBtn);
+    shake(checkBtn, 'shake', 'btn');
 
     // when the user guessing number and secret numbers are equal
   } else if (Number(num.value) === secretNumber) {
     num.value = "";
     msg.innerText = "🎉 Correct Number";
-    shake(againBtn);
+    shake(againBtn, 'shake', 'btn');
     showNumber.innerText = secretNumber;
     showNumber.style.width = "20rem";
     wrapper.style.backgroundColor = "#60b347";
@@ -55,7 +54,7 @@ checkBtn.addEventListener("click", () => {
       maxScore.innerText = highScore;
     }
   } else {
-    if (Number(score.innerText) > 0) {
+    if (Number(score.innerText) > 1) {
       currentScore--;
       score.innerText = currentScore;
 
@@ -66,6 +65,10 @@ checkBtn.addEventListener("click", () => {
     } else {
       // when the score is zero
       msg.innerText = "😥 You Lost the Game";
+      wrapper.style.backgroundColor = "red";
+      score.innerText = 0;
+      shake(againBtn, 'shake', 'btn');
+      shake(showNumber, 'shake-mystery-box', '')
     }
   }
 });
@@ -79,5 +82,4 @@ againBtn.addEventListener("click", () => {
   showNumber.innerText = "?";
   secretNumber = Math.trunc(Math.random() * 20) + 1;
   showNumber.style.width = "8rem";
-
 });
