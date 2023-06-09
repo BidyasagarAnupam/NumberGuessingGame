@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess The Number By Bidyasagar</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="wrapper">
+        <!-- header start -->
+        <header>
+            <div class="navbar">
+                <button id="again" class="btn">Again!</button>
+                <div class="text">(Between 1 and 20)</div>
+            </div>
+            <div class="heading">Guess My Number!</div>
+            <div id="mystery-box">?</div>
+        </header>
+        <!-- header end -->
+
+
+        <!-- main content -->
+        <main>
+            <div class="content">
+                <div class="left">
+                    <input type="number" id="number" class="user-interact">
+
+                    </input>
+                    <button id="check" class="btn">Check!</button>
+                </div>
+
+                <div class="right">
+                    <div class="msg">🤔 Start guessing...</div>
+
+                    <div class="scoring">
+                        <div class="label-score">💯 Score: <span id="score">20</span></div>
+                        <div class="label-highscore">🥇 High score: <span id="max-score">0</span></div>
+                    </div>
+                </div>
+
+            </div>
+
+            <footer>Made with <span style="color :red"> ❤ </span>by <a
+                    href="https://www.linkedin.com/in/bidyasagar-mohapatra-b86581203/" target="_blank"> Bidyasagar</a>,<a href="https://github.com/BidyasagarAnupam/NumberGuessingGame">
+                    Github Link</a></footer>
+        </main>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+
+</html>
