@@ -71,11 +71,9 @@ header {
   }
   25% {
     transform: translate(-50%, 50%) rotate(180deg);
-
   }
   50% {
     transform: translate(-50%, 50%) rotate(-180deg);
-
   }
   100% {
     transform: translate(-50%, 50%) rotate(-0deg);
@@ -108,8 +106,22 @@ header {
   }
 }
 
-.text {
+#mode {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 1rem;
+  border: 2px dotted white;
+  padding: 0 1.5rem;
+  transition: all 1s;
+  cursor: pointer;
+  pointer-events: initial;
+}
+
+
+
+#mode:hover {
+  border: 2px solid white;
 }
 
 .heading {
@@ -216,6 +228,91 @@ a {
   color: #eee;
 }
 
+/* modal design */
+.back-modal {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: 0.5s ease-in-out;
+  /* display: none; */
+  opacity: 0;
+  pointer-events: none;
+}
+
+.back-modal-active {
+  /* display: block; */
+  opacity: 1;
+  pointer-events: initial;
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  border: 2px solid #ffffff59;
+  width: 500px;
+  translate: -50% -50%;
+  background: #00000088;
+  backdrop-filter: blur(10px);
+  color: white;
+  z-index: 1;
+  padding: 20px 25px;
+  border-radius: 20px;
+  transition: 0.5s ease-in-out;
+  scale: 0;
+}
+
+/* when modal is active we add this class */
+.active {
+  scale: 1;
+}
+
+.modal-header {
+  display: flex;
+  margin-bottom: 25px;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #ffffff88;
+}
+
+.modal-header div i {
+  font-size: 30px;
+}
+.close {
+  cursor: pointer;
+}
+
+.mode-container {
+  display: flex;
+  flex-direction: row;
+  margin: 1.5rem auto;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.modes {
+  cursor: pointer;
+  padding: 1rem;
+  background-color: #cbc8c8;
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  transition: all 0.5s;
+}
+
+.modes:hover {
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;
+}
+
+.modes:nth-child(1) {
+  background-color: #49e9797a;
+}
+
 /* for mobile view */
 @media screen and (max-width: 767px) {
   header {
@@ -228,7 +325,7 @@ a {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 9px 2px;
+    padding: 9px 10px;
   }
 
   .btn {
@@ -236,12 +333,24 @@ a {
     padding: 0.5rem 1rem;
   }
 
-  .text {
+  #mode {
     font-size: 0.5rem;
+    padding: 1rem 0.5rem;
   }
+
+  .modal {
+    width: 94%;
+  }
+
+  .modes {
+    /* padding: 0.5rem; */
+    font-size: 0.6rem;
+  }
+
   .heading {
     font-size: 1.1rem;
     font-weight: bold;
+    text-align: center;
   }
 
   #mystery-box {

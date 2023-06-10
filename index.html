@@ -16,7 +16,7 @@
         <header>
             <div class="navbar">
                 <button id="again" class="btn">Again!</button>
-                <div class="text">(Between 1 and 20)</div>
+                <div id="mode" onclick="openModal()">Mode: <span id="modeType">Easy</span></div>
             </div>
             <div class="heading">Guess My Number!</div>
             <div id="mystery-box">?</div>
@@ -38,7 +38,7 @@
                     <div class="msg">🤔 Start guessing...</div>
 
                     <div class="scoring">
-                        <div class="label-score">💯 Score: <span id="score">20</span></div>
+                        <div class="label-score">💯 Score: <span id="score">100</span></div>
                         <div class="label-highscore">🥇 High score: <span id="max-score">0</span></div>
                     </div>
                 </div>
@@ -46,11 +46,37 @@
             </div>
 
             <footer>Made with <span style="color :red"> ❤ </span>by <a
-                    href="https://www.linkedin.com/in/bidyasagar-mohapatra-b86581203/" target="_blank"> Bidyasagar</a>,<a href="https://github.com/BidyasagarAnupam/NumberGuessingGame" target="_blank">
+                    href="https://www.linkedin.com/in/bidyasagar-mohapatra-b86581203/" target="_blank">
+                    Bidyasagar</a>,<a href="https://github.com/BidyasagarAnupam/NumberGuessingGame" target="_blank">
                     Github Link</a></footer>
         </main>
+
+        <!-- Modal Section -->
+        <section>
+            <div class="modal">
+                <!-- header -->
+                <div class="modal-header">
+                    <h1>Select</h1>
+                    <div>
+                        <i onclick="closeModal()" class="fa-solid fa-xmark close"></i>
+                    </div>
+                </div>
+
+                <!-- mode container -->
+                <div class="mode-container">
+                    <div class="modes" id="easy" onclick="changeMode('easy')">Easy</div>
+                    <div class="modes" id="medium" onclick="changeMode('mid')">MEDIUM</div>
+                    <div class="modes" id="hard" onclick="changeMode('hard')">HARD</div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- modal back -->
+        <div class="back-modal"  onclick="closeModal()"></div>
     </div>
 
+    <script src="https://kit.fontawesome.com/58a810656e.js" crossorigin="anonymous"></script>
     <script src="index.js"></script>
 </body>
 
